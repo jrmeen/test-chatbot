@@ -8,7 +8,7 @@ const
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 8080, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 5000, () => console.log('webhook is listening'));
 
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {  
@@ -50,9 +50,11 @@ app.post('/webhook', (req, res) => {
 
 });
 
+app.use(express.static("build"));
+
 // Accepts GET requests at the /webhook endpoint
 app.get('/webhook', (req, res) => {
-  
+  res.sendFile(path.resolve(__dirname,  "build", "index.html"));
   /** UPDATE YOUR VERIFY TOKEN **/
   const VERIFY_TOKEN = "Facebook";
   
