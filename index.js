@@ -8,7 +8,7 @@ const
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.set( 'port', ( process.env.PORT || 5000 ));
+app.set( 'port', ( process.env.PORT || 3000 ));
 
 // Start node server
 app.listen( app.get( 'port' ), function() {
