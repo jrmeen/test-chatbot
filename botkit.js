@@ -22,3 +22,5 @@ controller.hears('.*','message', async(bot, message) => {
 controller.on('event', async(bot, message) => {
     await bot.reply(message,'I received an event of type ' + message.type);
 });
+
+const { FacebookAdapter } = require('botbuilder-adapter-facebook');
